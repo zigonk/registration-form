@@ -1,0 +1,218 @@
+#page-header {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  background: #343942;
+}
+#header-logo {
+  font-size:15px;
+  line-height: 54px;
+  float: left;
+  height: 54px;
+  width: 215px;
+  margin-right: 5px;
+  color: #fafafa;
+  background: #20242a;
+}
+
+#page-sidebar {
+  position: fixed;
+  height: 100%;
+  left:0;
+  top:54px;
+  width: 215px;
+  color: #3a4049;
+  background-color: #f5f7f9;
+  font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
+}
+
+.side-bar-menu{
+  font-size:14px;
+  line-height: 32px;
+  position: relative;
+  display: block;
+  height: 32px;
+  margin: 10px 10px;
+  padding: 4px;
+  text-align: left;
+  border-radius: 4px;
+  color: #768294;
+  text-decoration: none;
+}
+.side-bar-menu:hover {
+  color: #2381E9;
+  background: #fff;
+}
+
+#page-content {
+  padding:30px;
+  margin-left: 215px;
+  margin-top:54px;
+}
+.form-wrapper {
+  font-size: 15px;
+  line-height: 30px;
+  background-color: #FFFFFF;
+  font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
+}
+
+.header {
+  color: grey;
+  margin-bottom: 50px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.pic-upload {
+  display:flex;
+  flex-grow:1;
+  flex-direction: column;
+  padding:0px 50px 0px;
+  vertical-align: center;
+}
+
+#user-picture
+{
+  width: 160px; 
+  height: 160px;
+  margin: 10px auto 10px;
+  border-radius:50%;
+}
+/* Upload Button */
+#file-button {
+  display:none;
+} 
+.file-upload
+{
+  border-radius: 5px;
+  background-color: rgb(0, 140, 255);
+  display: inline-block;
+  width: 130px; 
+  height: 35px;
+  margin: 10px auto 0px;
+  border: none;
+  color: white;
+  text-align: center; 
+  font-size: 15px;
+  font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
+}
+
+.button:active {
+  background-color: blue;
+}
+
+.info {
+  flex-grow:3;
+  
+}
+
+.user-form{
+  display:flex;
+  flex-wrap: nowrap;
+  margin: 15px 0px 10px 0px;
+}
+
+.label-name{
+  display: inline-block;
+  width: 150px;
+  /* width: 100%; */
+  text-align: right;
+}
+
+.user-info {
+  flex-grow: 1;
+  width: 100%;
+  height: 27px;
+  margin-left: 10px ;
+  padding-left: 5px;
+}
+
+.error-input {
+  color: red;
+  line-height: 20px;
+  font-size: 13px;
+}
+
+
+.submit{
+  text-align:center;
+  margin: 10px 0px;
+}
+#submit-button {
+  border-radius: 5px;
+  background-color: rgb(0, 140, 255);
+  width: 130px; 
+  height: 35px;
+  margin: 0px auto 0px;
+  border: none;
+  color:white;
+  font-size:15px
+}
+@media only screen and (max-width:700px) {
+    body {
+      margin:0px;
+    }
+    #header-logo {
+      width:54px;
+    }
+    #page-sidebar {
+      position: static;
+      /* display: none; */
+      margin:54px 0px;
+      width: 100%;
+      padding: 5px;
+    }
+    .side-bar-menu {
+      position: static;
+      margin: 0px;
+    }
+    #page-content {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .form-wrapper {
+      font-size: 20px;
+      line-height: 30px;
+      background-color: #FFFFFF;
+      font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
+    }
+    #tmp-label {
+      display: none;
+    }
+    .header {
+      text-align: center;
+      line-height: 40px;
+    }
+    .user-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .label-name {
+      width:100%;
+      margin:10px 0px;
+      text-align: left;
+    }
+    .user-info {
+      margin: 5px 0px;
+    }
+    .submit
+    {
+      margin: 20px 0px;
+      font-size:20px
+    }
+}
+
+
+
+
