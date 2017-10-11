@@ -75,7 +75,7 @@
     font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
   }
   
-  .header {
+  .title {
     color: grey;
     margin-bottom: 50px;
   }
@@ -188,7 +188,7 @@
       #tmp-label {
         display: none;
       }
-      .header {
+      .title {
         text-align: center;
         line-height: 40px;
       }
