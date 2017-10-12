@@ -24,7 +24,9 @@ function showPicture(){
 // });
 
 
+
 function checkName() {
+    localStorage.userInput[0]='';
     var ipName=document.getElementById("name-input").value;
     ipName = ipName.split(" ").filter(function(c) {return c!="";}).join(' ');
     var nameError = document.getElementById("name-error");
@@ -40,7 +42,7 @@ function checkName() {
         document.getElementById("name-input").style.border = "1px solid red";
         return false; 
     }
-    localStorage.userName = ipName;
+    localStorage.userInput[0] = ipName;
     document.getElementById("name-error-mess").style.display = "none";
     document.getElementById("name-input").style.border = "1px solid grey";
     return true;
@@ -48,6 +50,7 @@ function checkName() {
 
 function checkEmail()
 {
+    localStorage.userInput[1]='';
     var ipEmail = document.getElementById("email-input").value;
     ipEmail = ipEmail.trim();
     var emailError = document.getElementById("email-error");
@@ -64,7 +67,7 @@ function checkEmail()
         document.getElementById("email-input").style.border = "1px solid red";
         return false;
     }
-    localStorage.userEmail = ipEmail;
+    localStorage.userInput[1] = ipEmail;
     document.getElementById("email-error-mess").style.display = "none";
     document.getElementById("email-input").style.border = "1px solid grey";
     return true;
@@ -72,9 +75,10 @@ function checkEmail()
 
 function checkDob() {
     var ipDob = document.getElementById("dob-input");
+    localStorage.userInput[2]='';
     if (ipDob.value)
     {
-        localStorage.userDOB = ipDob.value;
+        localStorage.userInput[2] = ipDob.value;
         document.getElementById("dob-error-mess").style.display = "none";
         ipDob.style.border = "1px solid grey";
         return true;
@@ -89,15 +93,16 @@ function checkDob() {
 function checkGender() {
     var ipMale = document.getElementById("male-input");
     var ipFemale = document.getElementById("female-input");
-    var genderLabel=document.getElementsByClassName("gender-label");
+    var genderLabel = document.getElementsByClassName("gender-label");
+    localStorage.userInput[4] = '';
     if (ipMale.checked || ipFemale.checked) 
     {
         for (var i = 0; i < genderLabel.length; ++i)
         {
             genderLabel[i].style.color = "black";
         }
-        if (ipMale.checked) localStorage.userGender = "Male";
-        else localStorage.userGender = "Female";
+        if (ipMale.checked) localStorage.userInput[4] = "Male";
+        else localStorage.userInput[4] = "Female";
         return true;
     }
     else 
@@ -120,19 +125,30 @@ function errorImg() {
     {
         var img = document.getElementById("user-picture");
         img.style.border = "1px solid red";
+        return false;
     }
+}
+
+function saveDept() {
+    if (document.getElementById("check-student").checked) localStorage.userInput[5]="Student";
+    if (document.getElementById("check-teacher").checked) 
+        if (localStorage.userInput[5]=='') localStorage.userInput[5]="Teacher";
+        else localStorage.userInput[5] += ",Teacher";
 }
 
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click",function check(){
-    var checkAll=errorImg() & checkName() & checkEmail() & checkDob() & checkGender();
-    localStorage.userCity = document.getElementById("city-input").value;
+    var checkAll = errorImg() && checkName() && checkEmail() && checkDob() && checkGender();
+    saveDept();
+    localStorage.userInput[3] = document.getElementById("city-input").value;
     console.log(checkAll);
-    if (checkAll) {alert("Full Name: " + localStorage.userName + 
-    "\nEmail: " + localStorage.userEmail + 
-    "\nDOB: " + localStorage.userDOB +
-    "\nGender: " + localStorage.userGender +
-    "\nCity: " + localStorage.userCity);}
+    if (checkAll) {alert(
+    "Full Name   : " + localStorage.userInput[0] + 
+    "\nEmail     : " + localStorage.userInput[1] + 
+    "\nDOB       : " + localStorage.userInput[2] +
+    "\nGender    : " + localStorage.userInput[3] +
+    "\nCity      : " + localStorage.userInput[4] +
+    "\nDepartment: " + localStorage.userInput[5] );}
     else {alert("Submit failed");}
 });   
 
