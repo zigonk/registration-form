@@ -63,6 +63,23 @@
   color: #2381E9;
   background: #fff;
 }
+.new {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  color: #fff;
+  border-color: #8eca3f;
+  background: #9cd159;
+  font-size: 75%;
+  line-height: 1;
+  /* display: inline; */
+  display: none;
+  padding: .2em .6em .3em;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  border-radius: .25em;
+}
 
 #page-content {
   padding:30px;
@@ -105,6 +122,9 @@ progress {
     height: 32px;
     margin: auto;
     background-color: skyblue;
+    border: none;
+    border-radius: 5px;
+    display : none;
 }
 
 @media only screen and (max-width:700px) {

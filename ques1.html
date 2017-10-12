@@ -13,38 +13,43 @@
             </div>
         </div>
         <div id="page-sidebar">
-                <a class="side-bar-menu" title="Registration" href="./reg-form.html"> 
+                <a class="side-bar-menu" title="Registration" href="#"> 
                     <span>Registration</span> 
                 </a>
-                <a class="side-bar-menu" title="Profile" href="./profile.html"> 
+                <a class="side-bar-menu" title="Profile" href="#"> 
                     <span>Profile</span> 
                 </a>
                 <a class="side-bar-menu" title="Quiz" href="#"> 
                     <span>Quiz</span> 
-                        <a class="question" href="./ques1.html">
+                        <a class="question" id="ques1" href="#">
                             <span>Question 1</span>
+                            <span class="new" id="new-ques1">NEW</span>
                         </a>
-                        <a class="question" href="./ques2.html">
+                        <a class="question" id="ques2" href="#">
                             <span>Question 2</span>
+                            <span class="new" id="new-ques2">NEW</span>
                         </a>
-                        <a class="question" href="./ques3.html">
+                        <a class="question" id="ques3" href="#">
                             <span>Question 3</span>
+                            <span class="new" id="new-ques3">NEW</span>
                         </a>
-                        <a class="question" href="./ques4.html">
+                        <a class="question" id="ques4" href="#">
                             <span>Question 4</span>
+                            <span class="new" id="new-ques4">NEW</span>
                         </a>
-                        <a class="question" href="./ques5.html">
+                        <a class="question" id="ques5" href="#">
                             <span>Question 5</span>
+                            <span class="new" id="new-ques5">NEW</span>
                         </a>
                 </a>
-                <a class="side-bar-menu" title="Result" href="./result.html"> 
+                <!-- <a class="side-bar-menu" title="Result" href="./result.html"> 
                     <span>Result</span> 
-                </a>
+                </a> -->
         </div>
         <div id="page-content">
             <div class="form-wrapper">
                 <div class="title"> 
-                    <h1> Question 1 </h1>
+                    <h1 id="number-ques"> Question 1 </h1>
                     <hr>
                 </div>
                 <div class="content multiple">
@@ -86,13 +91,15 @@
                     </div>
                 </div>
                 <div id="submit">
-                        <input type="image" src="backward.png" alt="Back" width="48" height="48">
+                        <input type="image" id="backward-button" src="backward.png" alt="Back" width="48" height="48">
                         <progress value="1" max="5"></progress>
-                        <input type="image" src="forward.png" alt="Next" width="48" height="48">
+                        <input type="image" id="forward-button" src="forward.png" alt="Next" width="48" height="48">
+                        <input type="button" id="submit-button" value="Submit" width="48" height="48"> 
+                        <a href="./result.html" id="link-to-result" style="display:none"></a>
                 </div>
                 
             </div>
         </div>
-        <script rel="stylesheet" type="text/javascript" src="" ></script>
+        <script rel="stylesheet" type="text/javascript" src="./quiz.js" ></script>
     </body>
 </html>
