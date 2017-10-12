@@ -13,12 +13,39 @@
             </div>
         </div>
         <div id="page-sidebar">
-            <a class="side-bar-menu" href="./reg-form.html"> <span>Registration</span> </a>
+                <a class="side-bar-menu" title="Registration" href="./reg-form.html"> 
+                    <span>Registration</span> 
+                </a>
+                <a class="side-bar-menu" title="Profile" href="./profile.html"> 
+                    <span>Profile</span> 
+                </a>
+                <a class="side-bar-menu" title="Quiz" href="#"> 
+                    <span>Quiz</span> 
+                        <a class="question" href="./ques1.html">
+                            <span>Question 1</span>
+                        </a>
+                        <a class="question" href="./ques2.html">
+                            <span>Question 2</span>
+                        </a>
+                        <a class="question" href="./ques3.html">
+                            <span>Question 3</span>
+                        </a>
+                        <a class="question" href="./ques4.html">
+                            <span>Question 4</span>
+                        </a>
+                        <a class="question" href="./ques5.html">
+                            <span>Question 5</span>
+                        </a>
+                </a>
+                <a class="side-bar-menu" title="Result" href="./result.html"> 
+                    <span>Result</span> 
+                </a>
         </div>
         <div id="page-content">
             <div class="form-wrapper">
-                <div class="header"> 
+                <div class="title"> 
                     <h1> REGISTRATION FORM </h1>
+                    <hr>
                 </div>
                 <div class="content">
                     <div class ="pic-upload">
@@ -31,7 +58,10 @@
                     <div class="info">
                         <!-- NAME -->
                         <div class="user-form" id="name">
-                            <label class="label-name"> NAME*:  </label>
+                            <label class="label-name"> 
+                                NAME:  
+                                <span class="asterisk"> * </span>
+                            </label>
                             <input class="user-info" id="name-input" placeholder="Enter your name here" type="text">
                         </div>
                         <!-- Error NAME -->
@@ -41,7 +71,10 @@
                         </div>
                         <!-- EMAIL -->
                         <div class="user-form" id="email">
-                            <label class="label-name"> EMAIL*:  </label>
+                            <label class="label-name"> 
+                                EMAIL:  
+                                <span class="asterisk"> * </span>
+                            </label>
                             <input class="user-info" id="email-input" placeholder="Enter your email here" type="text">
                         </div>
                         <!-- Error EMAIL -->
@@ -51,7 +84,10 @@
                         </div>
                         <!-- DOB -->
                         <div class="user-form" id="dob">
-                            <label class="label-name"> D.O.B*:  </label>
+                            <label class="label-name"> 
+                                D.O.B:  
+                                <span class="asterisk"> * </span>
+                            </label>
                             <input class="user-info" id="dob-input" type="date">
                         </div>
                         <!-- Error DOB -->
@@ -61,7 +97,10 @@
                         </div>
                         <!-- CITY -->
                         <div class="user-form" id="city">
-                            <label class="label-name"> CITY*: </label>
+                            <label class="label-name"> 
+                                CITY: 
+                                <span class="asterisk"> * </span>
+                            </label>
                             <select class="user-info" id="city-input">
                                 <option value="Ho Chi Minh City">Ho Chi Minh City</option>
                                 <option value="Ha Noi City">Ha Noi City</option>
@@ -70,7 +109,10 @@
                         </div>
                         <!-- GENDER -->
                         <div class="user-form" id="gender">
-                            <label class="label-name"> GENDER*:  </label>
+                            <label class="label-name"> 
+                                GENDER:  
+                                <span class="asterisk"> * </span>
+                            </label>
                             <div class="user-info">
                                 <input class="gender" id="male-input" type="radio" name="gender" value="male"> 
                                 <label class="gender-label">Male</label>
@@ -81,7 +123,10 @@
                         </div>
                         <!-- DEPT -->
                         <div class="user-form" id="dept">
-                            <label class="label-name"> DEPARTMENT:</label>
+                            <label class="label-name"> 
+                                DEPARTMENT:
+                                <span class="asterisk" style="visibility: hidden;"> * </span>
+                            </label>
                             <div class="user-info">
                                 <input class="dept" type="checkbox" name="Student"> 
                                 <label>Student</label>

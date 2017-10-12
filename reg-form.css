@@ -46,6 +46,24 @@
   background: #fff;
 }
 
+.question {
+  font-size: 13px;
+  line-height: 30px;
+  position: relative;
+  display: block;
+  height: 30px;
+  margin: 10px 30px;
+  padding: 4px;
+  text-align: left;
+  border-radius: 4px;
+  color: #768294;
+  text-decoration: none;
+}
+.question:hover {
+  color: #2381E9;
+  background: #fff;
+}
+
 #page-content {
   padding:30px;
   margin-left: 215px;
@@ -58,7 +76,7 @@
   font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
 }
 
-.header {
+.title {
   color: grey;
   margin-bottom: 50px;
 }
@@ -125,6 +143,10 @@
   text-align: right;
 }
 
+.asterisk {
+  color: red;
+}
+
 .user-info {
   flex-grow: 1;
   width: 100%;
@@ -185,7 +207,7 @@
     #tmp-label {
       display: none;
     }
-    .header {
+    .title {
       text-align: center;
       line-height: 40px;
     }
@@ -212,7 +234,3 @@
       font-size:20px
     }
 }
-
-
-
-
