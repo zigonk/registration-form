@@ -72,7 +72,8 @@
   background: #9cd159;
   font-size: 75%;
   line-height: 1;
-  display: inline;
+  /* display: inline; */
+  display: none;
   padding: .2em .6em .3em;
   text-align: center;
   vertical-align: baseline;
@@ -121,6 +122,9 @@ progress {
     height: 32px;
     margin: auto;
     background-color: skyblue;
+    border: none;
+    border-radius: 5px;
+    display : none;
 }
 
 @media only screen and (max-width:700px) {
