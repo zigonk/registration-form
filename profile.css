@@ -88,17 +88,18 @@
   
   .pic-upload {
     display:flex;
-    flex-grow:1;
+    /* flex-grow:1; */
     flex-direction: column;
-    /* padding:0px 50px 0px; */
+    padding:0px 50px 0px;
     vertical-align: center;
+
   }
   
   #user-picture
   {
     width: 160px; 
     height: 160px;
-    margin: 10px auto 10px;
+    margin: 10px 50px 10px;
     border-radius:50%;
   }
   
@@ -108,7 +109,7 @@
   
   .info {
     flex-grow:3;
-    
+    width: 60%;
   }
   
   .user-form{
@@ -119,8 +120,7 @@
   
   .label-name{
     display: inline-block;
-    width: 150px;
-    /* width: 100%; */
+    width: 19%;
     text-align: right;
   }
 
