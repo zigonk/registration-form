@@ -1,13 +1,14 @@
 #page-header {
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 54px;
   background: #343942;
 }
+
 #header-logo {
-  font-size:15px;
+  font-size: 15px;
   line-height: 54px;
   float: left;
   height: 54px;
@@ -20,16 +21,16 @@
 #page-sidebar {
   position: fixed;
   height: 100%;
-  left:0;
-  top:54px;
+  left: 0;
+  top: 54px;
   width: 215px;
   color: #3a4049;
   background-color: #f5f7f9;
-  font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-.side-bar-menu{
-  font-size:14px;
+.side-bar-menu {
+  font-size: 14px;
   line-height: 32px;
   position: relative;
   display: block;
@@ -41,6 +42,7 @@
   color: #768294;
   text-decoration: none;
 }
+
 .side-bar-menu:hover {
   color: #2381E9;
   background: #fff;
@@ -59,10 +61,12 @@
   color: #768294;
   text-decoration: none;
 }
+
 .question:hover {
   color: #2381E9;
   background: #fff;
 }
+
 .new {
   position: absolute;
   top: 10px;
@@ -82,15 +86,16 @@
 }
 
 #page-content {
-  padding:30px;
+  padding: 30px;
   margin-left: 215px;
-  margin-top:54px;
+  margin-top: 54px;
 }
+
 .form-wrapper {
   font-size: 15px;
   line-height: 30px;
   background-color: #FFFFFF;
-  font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 .title {
@@ -99,69 +104,98 @@
 }
 
 .content {
-    line-height: 32px;
-    margin-left: 50px;
+  line-height: 32px;
+  margin-left: 50px;
 }
 
 [for] {
-    display: inline-block;
-    width: 97%;
+  display: inline-block;
+  width: 97%;
 }
 
 #submit {
-    margin: 20px;
-    display: flex;
-    justify-content: space-between;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
 }
+
 progress {
-    height: 32px;
-    width: 80%;
-    margin: auto;
+  height: 32px;
+  width: 80%;
+  margin: auto;
 }
+
 #submit-button {
-    height: 32px;
-    margin: auto;
-    background-color: skyblue;
-    border: none;
-    border-radius: 5px;
-    display : none;
+  height: 32px;
+  margin: auto;
+  background-color: skyblue;
+  border: none;
+  border-radius: 5px;
+  display: none;
+}
+
+#confirm {
+  position: fixed;
+  left: 500px;
+  top: 200px;
+  border: 10px double gray;
+  border-radius: 5px;
+  width: 400px;
+  height: 125px;
+  background-color: white;
+  text-align: center;
+  padding: 30px 0;
+  font-size: 20px;
+  line-height: 32px;
+  display: none;
+  /* transition: all 2s; */
+}
+
+.confirm-button {
+  height: 32px;
+  width: 50px;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+}
+
+#confirm-yes {
+  background-color: rgb(137, 135, 235);
 }
 
 @media only screen and (max-width:700px) {
-    body {
-      margin:0px;
-    }
-    #header-logo {
-      width:54px;
-    }
-    #page-sidebar {
-      position: static;
-      /* display: none; */
-      margin:54px 0px;
-      width: 100%;
-      padding: 5px;
-    }
-    .side-bar-menu {
-      position: static;
-      margin: 0px;
-    }
-    #page-content {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .form-wrapper {
-      font-size: 20px;
-      line-height: 30px;
-      background-color: #FFFFFF;
-      font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif;
-    }
-    
-    .title {
-      text-align: center;
-      line-height: 40px;
-    }
-    .content {
-      margin: 0;
-    }
-
+  body {
+    margin: 0px;
+  }
+  #header-logo {
+    width: 54px;
+  }
+  #page-sidebar {
+    position: static;
+    /* display: none; */
+    margin: 54px 0px;
+    width: 100%;
+    padding: 5px;
+  }
+  .side-bar-menu {
+    position: static;
+    margin: 0px;
+  }
+  #page-content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-wrapper {
+    font-size: 20px;
+    line-height: 30px;
+    background-color: #FFFFFF;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  .title {
+    text-align: center;
+    line-height: 40px;
+  }
+  .content {
+    margin: 0;
+  }
 }

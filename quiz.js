@@ -9,6 +9,8 @@ var idStandOn= Number(localStorage.idStandOn);
 var fwButton = document.getElementById("forward-button");
 var bwButton = document.getElementById("backward-button");
 var smButton = document.getElementById("submit-button");
+var confirmYes = document.getElementById("confirm-yes");
+var confirmNo = document.getElementById("confirm-no");
 
 window.document.onload = f5ShowQuestion();
 
@@ -98,11 +100,23 @@ bwButton.addEventListener("click", function toPreviousPage() {
     }
 })
 
-smButton.addEventListener("click", function toResulPage() {
-    if (confirm('Are you sure to submit your answers ?')) {
+// smButton.addEventListener("click", function toResultPage() {
+//     if (confirm('Are you sure to submit your answers ?')) {
+//         var resultPage = document.getElementById("link-to-result");
+//         resultPage.click();
+//     } else {
+//     }
+// });
+
+smButton.addEventListener("click", function toResultPage() {
+    // document.getElementById("myDIV").style.transition = "all 2s";
+    document.getElementById("confirm").style.display = "block";
+    confirmYes.addEventListener("click", function() {
         var resultPage = document.getElementById("link-to-result");
         resultPage.click();
-    } else {
-    }
+    });
+    confirmNo.addEventListener("click", function() {
+        document.getElementById("confirm").style.display = "none";
+    });
 });
 
