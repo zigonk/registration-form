@@ -120,3 +120,21 @@ smButton.addEventListener("click", function toResultPage() {
     });
 });
 
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}   
+
+// document.addEventListener("load", function countTime() {
+function countTime() {    
+    var start = new Date().getTime();
+    setInterval(function() {
+        var now  = new Date().getTime();
+        var distance = now - start;
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        document.getElementById("timecount").innerHTML = minutes + ":" + seconds;
+    }, 1000);
+}
