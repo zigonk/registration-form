@@ -149,7 +149,7 @@ progress[value]::-webkit-progress-value {
   border: none;
   border-radius: 40px;
   display: none;
-  font-weight: bold;
+  font-size: 15px;
 }
 #submit-button:hover {
   color: white;
