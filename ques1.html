@@ -5,7 +5,8 @@
         <title>Question 1</title>
         <link rel="stylesheet" href="./ques.css" >
     </head>
-    <body>
+    <body onload="countTime()">
+    <!-- <body> -->
         <div id="page-header">
             <div id="header-logo">
             </div>
@@ -51,6 +52,7 @@
                 <div class="title"> 
                     <h1 id="number-ques"> Question 1 </h1>
                     <hr>
+                    <p id="timecount"></p>
                 </div>
                 <div class="content multiple">
                     <h3 id="question"> This is the question </h3>
@@ -100,8 +102,10 @@
             </div>
             <div id="confirm">
                 <p>Are you sure to submit your answers?</p>
-                <input type="button" id="confirm-yes" value="Yes" alt="Yes" class="confirm-button">
-                <input type="button" id="confirm-no" value="No" alt="No" class="confirm-button">
+                <div id="confirm-button-wrapper">
+                    <input type="button" id="confirm-yes" value="Yes" alt="Yes" class="confirm-button">
+                    <input type="button" id="confirm-no" value="No" alt="No" class="confirm-button">
+                </div>
             </div>
         </div>
         <script rel="stylesheet" type="text/javascript" src="./quiz.js" ></script>
