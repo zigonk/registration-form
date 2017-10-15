@@ -194,11 +194,15 @@ function countTime() {
     setInterval(function() {
         var now  = new Date().getTime();
         var timeOnQuestionIth = JSON.parse(localStorage.timeOnQuestionIth);
-        timeOnQuestionIth[idStandOn-1]++;
+        timeOnQuestionIth[idStandOn]++;
         localStorage.timeOnQuestionIth = JSON.stringify(timeOnQuestionIth);
         var distance = now - start;
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if (minutes == 1) {
+            var resultPage = document.getElementById("link-to-result");
+            resultPage.click();
+        }
         minutes = checkTime(minutes);
         seconds = checkTime(seconds);
         document.getElementById("timecount").innerHTML = minutes + ":" + seconds;
