@@ -1,15 +1,33 @@
 window.URL = window.URL || window.webkitURL;
 
+var arrInp = [5];
+
 var mediaQuery = window.matchMedia( "(min-width: 700px)" );
 
 document.querySelector("#file-button").onchange = showPicture;
-var checkImg=false;
+var checkImg = false;
 function showPicture(){
-    var linkImg=document.getElementById("file-button").files;
-    linkImg = window.URL.createObjectURL(linkImg[0]);
-    var img = document.getElementById("user-picture");
-    img.src = linkImg;
-    checkImg=true;
+
+    debugger;
+    // var linkImg = document.getElementById("file-button");
+    // localStorage.linkImg = getBase64Image(linkImg);
+    checkImg = true;
+    // img = document.getElementById("user-picture");
+    // img.src = "data:image/png;base64," + localStorage.linkImg;
+}
+
+// return the image
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/png");
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
 // var sideBar=document.getElementById("page-sidebar");
@@ -26,8 +44,8 @@ function showPicture(){
 
 
 function checkName() {
-    localStorage.userInput[0]='';
-    var ipName=document.getElementById("name-input").value;
+    arrInp[0] = '';
+    var ipName = document.getElementById("name-input").value;
     ipName = ipName.split(" ").filter(function(c) {return c!="";}).join(' ');
     var nameError = document.getElementById("name-error");
     if (/(^| )[a-z]/.test(ipName)) { 
@@ -42,7 +60,7 @@ function checkName() {
         document.getElementById("name-input").style.border = "1px solid red";
         return false; 
     }
-    localStorage.userInput[0] = ipName;
+    arrInp[0] = ipName;
     document.getElementById("name-error-mess").style.display = "none";
     document.getElementById("name-input").style.border = "1px solid grey";
     return true;
@@ -50,7 +68,7 @@ function checkName() {
 
 function checkEmail()
 {
-    localStorage.userInput[1]='';
+    arrInp[1] = '';
     var ipEmail = document.getElementById("email-input").value;
     ipEmail = ipEmail.trim();
     var emailError = document.getElementById("email-error");
@@ -67,7 +85,7 @@ function checkEmail()
         document.getElementById("email-input").style.border = "1px solid red";
         return false;
     }
-    localStorage.userInput[1] = ipEmail;
+    arrInp[1] = ipEmail;
     document.getElementById("email-error-mess").style.display = "none";
     document.getElementById("email-input").style.border = "1px solid grey";
     return true;
@@ -75,10 +93,10 @@ function checkEmail()
 
 function checkDob() {
     var ipDob = document.getElementById("dob-input");
-    localStorage.userInput[2]='';
+    arrInp[2] = '';
     if (ipDob.value)
     {
-        localStorage.userInput[2] = ipDob.value;
+        arrInp[2] = ipDob.value;
         document.getElementById("dob-error-mess").style.display = "none";
         ipDob.style.border = "1px solid grey";
         return true;
@@ -94,15 +112,15 @@ function checkGender() {
     var ipMale = document.getElementById("male-input");
     var ipFemale = document.getElementById("female-input");
     var genderLabel = document.getElementsByClassName("gender-label");
-    localStorage.userInput[4] = '';
+    arrInp[4] = '';
     if (ipMale.checked || ipFemale.checked) 
     {
         for (var i = 0; i < genderLabel.length; ++i)
         {
             genderLabel[i].style.color = "black";
         }
-        if (ipMale.checked) localStorage.userInput[4] = "Male";
-        else localStorage.userInput[4] = "Female";
+        if (ipMale.checked) arrInp[4] = "Male";
+        else arrInp[4] = "Female";
         return true;
     }
     else 
@@ -130,25 +148,29 @@ function errorImg() {
 }
 
 function saveDept() {
-    if (document.getElementById("check-student").checked) localStorage.userInput[5]="Student";
+    if (document.getElementById("check-student").checked) arrInp[5] = "Student";
     if (document.getElementById("check-teacher").checked) 
-        if (localStorage.userInput[5]=='') localStorage.userInput[5]="Teacher";
-        else localStorage.userInput[5] += ",Teacher";
+        if (arrInp[5] == '') arrInp[5] = "Teacher";
+        else arrInp[5] += ",Teacher";
 }
 
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click",function check(){
     var checkAll = errorImg() && checkName() && checkEmail() && checkDob() && checkGender();
     saveDept();
-    localStorage.userInput[3] = document.getElementById("city-input").value;
+    arrInp[3] = document.getElementById("city-input").value;
     console.log(checkAll);
-    if (checkAll) {alert(
-    "Full Name   : " + localStorage.userInput[0] + 
-    "\nEmail     : " + localStorage.userInput[1] + 
-    "\nDOB       : " + localStorage.userInput[2] +
-    "\nGender    : " + localStorage.userInput[3] +
-    "\nCity      : " + localStorage.userInput[4] +
-    "\nDepartment: " + localStorage.userInput[5] );}
+    if (checkAll) {
+    alert(
+    "Full Name   : " + arrInp[0] + 
+    "\nEmail     : " + arrInp[1] + 
+    "\nDOB       : " + arrInp[2] +
+    "\nGender    : " + arrInp[3] +
+    "\nCity      : " + arrInp[4] +
+    "\nDepartment: " + arrInp[5] );
+    document.getElementById("link-to-profile").click();
+    localStorage.userInput = JSON.stringify(arrInp);
+    }
     else {alert("Submit failed");}
 });   
 

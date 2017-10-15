@@ -54,47 +54,47 @@
                     <hr>
                     <p id="timecount"></p>
                 </div>
-                <div class="content multiple">
-                    <h3 id="question"> This is the question </h3>
+                <div id="content-multiple">
+                    <h3 class="question" id='content-multiple-question'> This is the question </h3>
                     <div class="answers">
                         <input type="checkbox" name="mul-answer" id="mul-ans1">
-                        <label for="mul-ans1"> Answer 1 </label>
+                        <label for="mul-ans1" id='mul-ans1-content'> Answer 1 </label>
                     </div>
                     <div class="answers">
                         <input type="checkbox" name="mul-answer" id="mul-ans2">
-                        <label for="mul-ans2"> Answer 2 </label>
+                        <label for="mul-ans2" id='mul-ans2-content'> Answer 2 </label>
                     </div>
                     <div class="answers">
                         <input type="checkbox" name="mul-answer" id="mul-ans3">
-                        <label for="mul-ans3"> Answer 3 </label>
+                        <label for="mul-ans3" id='mul-ans3-content'> Answer 3 </label>
                     </div>
                     <div class="answers">
                         <input type="checkbox" name="mul-answer" id="mul-ans4">
-                        <label for="mul-ans4"> Answer 4 </label>
+                        <label for="mul-ans4" id='mul-ans4-content'> Answer 4 </label>
                     </div>
                 </div>
-                <div class="content single" style="display: none">
-                    <h3 id="question"> This is the question </h3>
+                <div id="content-single" style="display: none">
+                    <h3 class="question" id='content-single-question'> This is the question </h3>
                     <div class="answers">
                         <input type="radio" name="sin-answer" id="sin-ans1">
-                        <label for="sin-ans1"> Answer 1 </label>
+                        <label for="sin-ans1" id='sin-ans1-content'> Answer 1 </label>
                     </div>
                     <div class="answers">
                         <input type="radio" name="sin-answer" id="sin-ans2">
-                        <label for="sin-ans2"> Answer 2 </label>
+                        <label for="sin-ans2" id='sin-ans2-content'> Answer 2 </label>
                     </div>
                     <div class="answers">
                         <input type="radio" name="sin-answer" id="sin-ans3">
-                        <label for="sin-ans3"> Answer 3 </label>
+                        <label for="sin-ans3" id='sin-ans3-content'> Answer 3 </label>
                     </div>
                     <div class="answers">
                         <input type="radio" name="sin-answer" id="sin-ans4">
-                        <label for="sin-ans4"> Answer 4 </label>
+                        <label for="sin-ans4" id='sin-ans4-content'> Answer 4 </label>
                     </div>
                 </div>
                 <div id="submit">
                     <input type="image" id="backward-button" src="backward.png" alt="Back" width="48" height="48">
-                    <progress value="1" max="5"></progress>
+                    <progress id='answered-progress' value="0" max="5"></progress>
                     <input type="image" id="forward-button" src="forward.png" alt="Next" width="48" height="48">
                     <input type="button" id="submit-button" value="Submit" width="48" height="48"> 
                     <a href="./result.html" id="link-to-result" style="display:none"></a>

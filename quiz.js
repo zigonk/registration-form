@@ -21,7 +21,6 @@ function getIDQues(idQuestion) {
 function f5ShowQuestion() {
     for (var i = cur+1; i<=numberQuestion; ++i) {
         var ithQues = document.getElementById(getIDQues(i));
-        console.log(ithQues);
         ithQues.style.display = "none";
     }
     ShowQuestion(idStandOn);
@@ -32,10 +31,44 @@ function turnOffNew() {
     document.getElementById(ithNew).style.display = "none";
 }
 
+function showMultipleQuestion(questionContent) {
+    document.getElementById('content-multiple').style.display = 'block';
+    document.getElementById('content-single').style.display = 'none';
+    document.getElementById('content-multiple-question').innerHTML = questionContent.question;
+    var resultArray = JSON.parse(localStorage.resultArray);
+    for (var i = 1; i <= 4; ++i) {
+        var idAns = 'mul-ans' + i +'-content';
+        var idSelect = 'mul-ans' + i;
+        document.getElementById(idAns).innerHTML = questionContent.ansContent[i-1];
+        document.getElementById(idSelect).checked = resultArray[idStandOn][i];
+    }
+
+}
+
+function showSingleQuesiton(questionContent) {
+    document.getElementById('content-multiple').style.display = 'none';
+    document.getElementById('content-single').style.display = 'block';
+    document.getElementById('content-single-question').innerHTML = questionContent.question;
+    var resultArray = JSON.parse(localStorage.resultArray);
+    for (var i = 1; i <= 4; ++i) {
+        var idAns = 'sin-ans' + i +'-content';
+        var idSelect = 'sin-ans' + i;
+        document.getElementById(idAns).innerHTML = questionContent.ansContent[i-1];
+        document.getElementById(idSelect).checked = resultArray[idStandOn][i];
+    }
+}
+
 function ShowQuestion(idQuestion) {
     idStandOn = idQuestion;
     localStorage.idStandOn = idStandOn;
-    console.log(idQuestion);
+    if (idStandOn == 1) {
+        bwButton.style.visibility = "hidden";
+    }
+    if (fwButton.style.display == "none") 
+    {
+        fwButton.style.display = "inline-block";
+        smButton.style.display = "none";
+    }
     if (idStandOn == numberQuestion) 
     {
         fwButton.style.display = "none";
@@ -44,32 +77,60 @@ function ShowQuestion(idQuestion) {
     var ithQues = document.getElementById(getIDQues(idQuestion));
     ithQues.style.display = "block";
     document.getElementById("number-ques").innerHTML = "Question " + idQuestion;
+    debugger;
+    var arrQues = JSON.parse(localStorage.Ques);
+    var question = arrQues[idQuestion-1];
+    if (question.isMultiple) {
+        showMultipleQuestion(question);
+    }
+    else {
+        showSingleQuesiton(question);
+    }
+    debugger;
+    document.getElementById('answered-progress').value = Number(localStorage.progress);
 }
 
-// ADD JS TO MENU QUESTION
 
-// for (var i=1; i<=numberQuestion; ++i) {
-//      var ithQues=document.getElementById(getIDQues(i));
-//      ithQues.addEventListener("click", ShowQuestion(i));
-// }
-// var ithQues=document.getElementById(getIDQues(1));
-// ithQues.onclick = ShowQuestion(1);
-// // ithQues=document.getElementById(getIDQues(2));
-// // ithQues.addEventListener("onclick", ShowQuestion(2));
-// // ithQues=document.getElementById(getIDQues(3));
-// // ithQues.addEventListener("onclick", ShowQuestion(3));
-// // ithQues=document.getElementById(getIDQues(4));
-// // ithQues.addEventListener("onclick", ShowQuestion(4));
-// // ithQues=document.getElementById(getIDQues(5));
-// // ithQues.addEventListener("onclick", ShowQuestion(5));
+function convert(isMultiple) {
+    if (isMultiple) return 'mul-ans';
+    else return 'sin-ans';
+}
 
+function checkQuestionIsDone(idQuestion) {
+    var answered = false;
+    var resultArray = JSON.parse(localStorage.resultArray);
+    for (var j = 1; j <= 4; ++j) 
+    {
+        answered |= resultArray[idQuestion][j];
+    }
+    return answered;
+}
 
-// ADD JS TO BUTTON 
+function updateResult (idQuestion) {
+    debugger;
+    var arrQues = JSON.parse(localStorage.Ques);
+    var resultArray = JSON.parse(localStorage.resultArray);
+    var question = arrQues[idQuestion-1];
+    for (var i = 1; i <= 4; ++i)
+    {
+        var idAns = convert(question.isMultiple) + i;
+        resultArray[idQuestion][i] = document.getElementById(idAns).checked;
+    }
+    localStorage.resultArray = JSON.stringify(resultArray);
+    var progress = 0;
+    for (var i = 1; i <= numberQuestion; ++i) {
+        if (checkQuestionIsDone(i)) progress++;
+    }
+    document.getElementById('answered-progress').value = progress;
+    localStorage.progress = progress;
+}
 
 if (idStandOn == 1) bwButton.style.visibility = "hidden";
 
 fwButton.addEventListener("click",function toNextPage() {
+    updateResult(idStandOn);
     turnOffNew();
+    debugger;
     idStandOn++;
     localStorage.idStandOn = idStandOn;
     if (idStandOn > cur) 
@@ -86,18 +147,12 @@ fwButton.addEventListener("click",function toNextPage() {
 
 
 bwButton.addEventListener("click", function toPreviousPage() {
+    updateResult(idStandOn);
     turnOffNew();
     idStandOn--;
     localStorage.idStandOn = idStandOn;
+    debugger;
     ShowQuestion(idStandOn);
-    if (idStandOn == 1) {
-        bwButton.style.visibility = "hidden";
-    }
-    if (fwButton.style.display == "none") 
-    {
-        fwButton.style.display = "inline-block";
-        smButton.style.display = "none";
-    }
 })
 
 // smButton.addEventListener("click", function toResultPage() {
@@ -110,6 +165,7 @@ bwButton.addEventListener("click", function toPreviousPage() {
 
 smButton.addEventListener("click", function toResultPage() {
     // document.getElementById("myDIV").style.transition = "all 2s";
+    updateResult(idStandOn);
     document.getElementById("confirm").style.display = "block";
     confirmYes.addEventListener("click", function() {
         var resultPage = document.getElementById("link-to-result");
@@ -117,6 +173,13 @@ smButton.addEventListener("click", function toResultPage() {
     });
     confirmNo.addEventListener("click", function() {
         document.getElementById("confirm").style.display = "none";
+        for (var i = 1; i <= numberQuestion; ++i) {
+            if (!checkQuestionIsDone(i)) 
+            {
+                ShowQuestion(i);
+                break;
+            }
+        }
     });
 });
 
@@ -130,6 +193,9 @@ function countTime() {
     var start = new Date().getTime();
     setInterval(function() {
         var now  = new Date().getTime();
+        var timeOnQuestionIth = JSON.parse(localStorage.timeOnQuestionIth);
+        timeOnQuestionIth[idStandOn-1]++;
+        localStorage.timeOnQuestionIth = JSON.stringify(timeOnQuestionIth);
         var distance = now - start;
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
