@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="./profile.css" >
+    </head>
+    <body>
+        <div id="page-header">
+            <div id="header-logo">
+            </div>
+            <div id="header-left">
+            </div>
+        </div>
+        <div id="page-sidebar">
+                <a class="side-bar-menu" title="Registration" href="#"> 
+                    <span>Registration</span> 
+                </a>
+                <a class="side-bar-menu" title="Profile" href="./profile.html"> 
+                    <span>Profile</span> 
+                </a>
+                
+                <a class="side-bar-menu" title="Quiz" href="#"> 
+                    <span>Quiz</span> 
+                        <!-- <a class="question" href="./ques1.html">
+                            <span>Question 1</span>
+                        </a>
+                        <a class="question" href="./ques2.html">
+                            <span>Question 2</span>
+                        </a>
+                        <a class="question" href="./ques3.html">
+                            <span>Question 3</span>
+                        </a>
+                        <a class="question" href="./ques4.html">
+                            <span>Question 4</span>
+                        </a>
+                        <a class="question" href="./ques5.html">
+                            <span>Question 5</span>
+                        </a> -->
+                </a>
+                <a class="side-bar-menu" title="Result" href="./result.html"> 
+                    <span>Result</span> 
+                </a>
+        </div>
+        <div id="page-content">
+            <div class="form-wrapper">
+                <div class="title"> 
+                    <h1> PROFILE </h1>
+                    <hr>
+                </div>
+                <div class="content">
+                    <div class ="pic-upload">
+                        <input class="user-pic" id="user-picture" type="image" src="./profile.png" alt="profile-pic">
+                        <!-- <label class="file-upload button" id="upload-button"> 
+                            <input class="user-pic" id="file-button" type="file" accept=".jpg, .jpeg, .png" >
+                            Upload 
+                        </label> -->
+                    </div>  
+                    <div class="info">
+                        <!-- NAME -->
+                        <div class="user-form" id="name">
+                            <label class="label-name">
+                                NAME:  
+                                <span class="asterisk"> * </span>
+                            </label>                           
+                            <label class="user-input" id="userinput0"></label>
+                        </div>
+                        <!-- EMAIL -->
+                        <div class="user-form" id="email">
+                            <label class="label-name">
+                                EMAIL:  
+                                <span class="asterisk"> * </span>
+                            </label>                            
+                            <label class="user-input" id="userinput1"></label>
+                        </div>
+                        <!-- DOB -->
+                        <div class="user-form" id="dob">
+                            <label class="label-name"> 
+                                D.O.B:  
+                                <span class="asterisk"> * </span>
+                            </label>
+                            <label class="user-input" id="userinput2"></label>
+                        </div>
+                        <!-- CITY -->
+                        <div class="user-form" id="city">
+                            <label class="label-name"> 
+                                CITY: 
+                                <span class="asterisk"> * </span>
+                            </label>
+                            <label class="user-input" id="userinput3"></label>
+                        </div>
+                        <!-- GENDER -->
+                        <div class="user-form" id="gender">
+                            <label class="label-name"> 
+                                GENDER:  
+                                <span class="asterisk"> * </span>
+                            </label>
+                            <label class="user-input" id="userinput4"></label>
+                        </div>
+                        <!-- DEPT -->
+                        <div class="user-form" id="dept">
+                            <label class="label-name"> 
+                                DEPARTMENT:
+                                <span class="asterisk" style="visibility: hidden"> * </span>
+                            </label>
+                            <label class="user-input" id="userinput5"></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="submit">
+                    <hr>
+                    <input class="button" id="submit-button" type="button" value="START QUIZ"> 
+                    <a href="./ques1.html" id="to-ques1" style="display:none"></a>
+                </div> -->
+            </div>
+        </div>
+        <script rel="stylesheet" type="text/javascript" src="./profile-result.js" ></script>
+    </body>
+</html>
