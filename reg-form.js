@@ -2,18 +2,32 @@ window.URL = window.URL || window.webkitURL;
 
 var arrInp = [5];
 
-var mediaQuery = window.matchMedia( "(min-width: 700px)" );
+var fileButton = document.getElementById("file-button");
 
-document.querySelector("#file-button").onchange = showPicture;
+document.querySelector("#file-button").onchange = readURL(fileButton);
 var checkImg = false;
+
+function readURL(input) 
+{
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('user-picture').src =  e.target.result;
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 function showPicture(){
 
     debugger;
-    // var linkImg = document.getElementById("file-button");
-    // localStorage.linkImg = getBase64Image(linkImg);
+    var linkImg = document.getElementById("user-picture");
+    localStorage.linkImg = getBase64Image(linkImg);
     checkImg = true;
-    // img = document.getElementById("user-picture");
-    // img.src = "data:image/png;base64," + localStorage.linkImg;
+    img = document.getElementById("user-picture");
+    img.src = "data:image/png;base64," + localStorage.linkImg;
 }
 
 // return the image
