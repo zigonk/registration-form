@@ -77,7 +77,6 @@ function ShowQuestion(idQuestion) {
     var ithQues = document.getElementById(getIDQues(idQuestion));
     ithQues.style.display = "block";
     document.getElementById("number-ques").innerHTML = "Question " + idQuestion;
-    debugger;
     var arrQues = JSON.parse(localStorage.Ques);
     var question = arrQues[idQuestion-1];
     if (question.isMultiple) {
@@ -86,7 +85,6 @@ function ShowQuestion(idQuestion) {
     else {
         showSingleQuesiton(question);
     }
-    debugger;
     document.getElementById('answered-progress').value = Number(localStorage.progress);
 }
 
@@ -107,7 +105,6 @@ function checkQuestionIsDone(idQuestion) {
 }
 
 function updateResult (idQuestion) {
-    debugger;
     var arrQues = JSON.parse(localStorage.Ques);
     var resultArray = JSON.parse(localStorage.resultArray);
     var question = arrQues[idQuestion-1];
@@ -130,7 +127,6 @@ if (idStandOn == 1) bwButton.style.visibility = "hidden";
 fwButton.addEventListener("click",function toNextPage() {
     updateResult(idStandOn);
     turnOffNew();
-    debugger;
     idStandOn++;
     localStorage.idStandOn = idStandOn;
     if (idStandOn > cur) 
@@ -151,7 +147,6 @@ bwButton.addEventListener("click", function toPreviousPage() {
     turnOffNew();
     idStandOn--;
     localStorage.idStandOn = idStandOn;
-    debugger;
     ShowQuestion(idStandOn);
 })
 
