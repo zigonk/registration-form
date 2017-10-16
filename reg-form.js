@@ -170,7 +170,11 @@ function saveDept() {
 
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click",function check(){
-    var checkAll = errorImg() && checkName() && checkEmail() && checkDob() && checkGender();
+    var checkAll = errorImg();
+    checkAll = checkName() && checkAll;
+    checkAll = checkEmail() && checkAll;
+    checkAll = checkDob() && checkAll;
+    checkAll = checkGender() && checkAll;
     saveDept();
     arrInp[3] = document.getElementById("city-input").value;
     console.log(checkAll);
