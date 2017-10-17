@@ -100,7 +100,7 @@
   width: 160px; 
   height: 160px;
   margin: 10px 50px 10px;
-  border-radius:50%;
+  /* border-radius:50%; */
 }
 /* Upload Button */
 #file-button {

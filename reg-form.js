@@ -4,40 +4,54 @@ var arrInp = [5];
 
 var fileButton = document.getElementById("file-button");
 
-document.querySelector("#file-button").onchange = readURL(fileButton);
+document.querySelector("#file-button").onchange = function () {
+    debugger;
+    readURL();
+};
+
 var checkImg = false;
 
-function readURL(input) 
-{
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+// function readURL(input) 
+// {
+//     debugger;
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
 
-        reader.onload = function (e) {
-            document.getElementById('user-picture').src =  e.target.result;
-        }
+//         reader.onload = function (e) {
+//             document.getElementById('user-picture').src =  e.target.result;
+//         }
 
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
 
-function showPicture(){
+// function saveSrc(){
 
-    debugger;
-    var linkImg = document.getElementById("user-picture");
-    localStorage.linkImg = getBase64Image(linkImg);
+//     debugger;
+//     var linkImg = document.getElementById("user-picture");
+//     localStorage.linkImg = getBase64Image(linkImg);
+//     checkImg = true;
+//     img = document.getElementById("user-picture");
+//     img.src = "data:image/png;base64," + localStorage.linkImg;
+// }
+
+function readURL() {
+    var buttonImg = document.getElementById('file-button').files[0];
+    img = window.URL.createObjectURL(buttonImg);
+    var imgPicture = document.getElementById('user-picture');
+    imgPicture.src = img;
     checkImg = true;
-    img = document.getElementById("user-picture");
-    img.src = "data:image/png;base64," + localStorage.linkImg;
 }
 
 // return the image
-function getBase64Image(img) {
+function getBase64Image() {
+    var img = document.getElementById("user-picture");
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
 
     var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img, 0, 0, img.width, img.height);
 
     var dataURL = canvas.toDataURL("image/png");
 
@@ -170,10 +184,14 @@ function saveDept() {
 
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click",function check(){
-    var checkAll = errorImg() && checkName() && checkEmail() && checkDob() && checkGender();
+    localStorage.linkImg = getBase64Image();
+    var checkAll = errorImg();
+    checkAll = checkName() && checkAll;
+    checkAll = checkEmail() && checkAll;
+    checkAll = checkDob() && checkAll;
+    checkAll = checkGender() && checkAll;
     saveDept();
     arrInp[3] = document.getElementById("city-input").value;
-    console.log(checkAll);
     if (checkAll) {
     alert(
     "Full Name   : " + arrInp[0] + 
