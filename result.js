@@ -1,4 +1,5 @@
 var timeOnQuestionIth = JSON.parse(localStorage.timeOnQuestionIth);
+localStorage.isSubmit = 1;
 function drawChart() {
     var chart = new CanvasJS.Chart("chart-div", {
         animationEnabled: true,

@@ -4,6 +4,7 @@ localStorage.numberQuestion = 5;
 localStorage.idStandOn = 1;
 localStorage.currentQuestion = 1;
 localStorage.progress = 0;
+localStorage.isSubmit = 0;
 
 var timeOnQuestionIth = [6];
 for (var i = 0; i < 6; ++i) timeOnQuestionIth[i]=0;
@@ -34,7 +35,7 @@ function addUserInput() {
 }
 
 addUserInput();
-
+debugger;
 function initQuestion() {
     var arrQuestion = [5];
     arrQuestion = [ 

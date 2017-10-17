@@ -24,6 +24,11 @@ function f5ShowQuestion() {
         ithQues.style.display = "none";
     }
     ShowQuestion(idStandOn);
+    if (localStorage.isSubmit == "1") 
+    {
+        var resultPage = document.getElementById("link-to-result");
+        resultPage.click();
+    }
 }
 
 function turnOffNew() {
