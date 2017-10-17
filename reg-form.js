@@ -41,6 +41,7 @@ function readURL() {
     var imgPicture = document.getElementById('user-picture');
     imgPicture.src = img;
     checkImg = true;
+    localStorage.linkImg = getBase64Image();
 }
 
 // return the image
@@ -184,7 +185,7 @@ function saveDept() {
 
 var submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click",function check(){
-    localStorage.linkImg = getBase64Image();
+
     var checkAll = errorImg();
     checkAll = checkName() && checkAll;
     checkAll = checkEmail() && checkAll;
